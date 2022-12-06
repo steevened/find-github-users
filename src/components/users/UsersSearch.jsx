@@ -40,7 +40,7 @@ const UsersSearch = () => {
     <div className="z-10">
       <form onSubmit={handleSubmit}>
         <div className="">
-          <div className="absolute -translate-x-1/2 left-1/2 -bottom-[62px] md:-bottom-[75px]">
+          <div className="absolute -translate-x-1/2 left-1/2 -bottom-[65px] md:-bottom-[75px]">
             <input
               onClick={activeDropdown}
               value={text}
@@ -49,7 +49,7 @@ const UsersSearch = () => {
               placeholder="Search…"
               className={`${
                 dropdown ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-              } input md:input-lg  focus:outline-none transition-all duration-200 ease-in-out bg-base-300/50 shadow-md `}
+              } input md:input-lg rounded-none bg-neutral focus:outline-none transition-all duration-200 ease-in-out bg-base-300/50 shadow-xl `}
             />
           </div>
 

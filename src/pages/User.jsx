@@ -2,31 +2,34 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { UserThunk } from '../store/slices/User.slice';
+import { getReposThunk } from '../store/slices/Repos.slice';
 import { RiGitRepositoryLine } from 'react-icons/ri';
 import { FaStoreAlt } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
-
 import { ImUsers } from 'react-icons/im';
 import { GoMarkGithub } from 'react-icons/go';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
+import RepoList from '../components/repos/RepoList';
 
 const User = () => {
   const user = useSelector((state) => state.user);
   const IsLoading = useSelector((state) => state.IsLoading);
   const dispatch = useDispatch();
   const params = useParams();
+  const repos = useSelector((state) => state.repos);
 
   useEffect(() => {
     dispatch(UserThunk(params.login));
+    dispatch(getReposThunk(params.login));
   }, []);
 
   if (IsLoading) {
     return <Loader />;
   }
 
-  console.log(user);
+  console.log(repos);
 
   const {
     avatar_url,
@@ -61,17 +64,17 @@ const User = () => {
 
   return (
     <>
-      <div className="w-full h-full min-h-screen mx-auto lg:w-10/12">
-        <div className="mb-4">
+      <div className=" h-full min-h-screen mx-auto w-5/6 ">
+        <div className="my-6">
           <Link to="/" className="btn btn-ghost btn-circle">
             <AiOutlineArrowLeft />
           </Link>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 gap-5">
-          <div className="custom-card-image mb-6 md:mb-0">
-            <div className="rounded-lg shadow-xl card image-full">
+        <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 md:gap-5 ">
+          <div className="custom-card-image mb-6 md:mb-0 ">
+            <div className="rounded-lg shadow-xl card image-full ">
               <figure>
-                <img src={avatar_url} alt="" />
+                <img src={avatar_url} alt="user avatar" />
               </figure>
               <div className="card-body justify-end">
                 <h2 className="card-title mb-0">{name}</h2>
@@ -88,19 +91,20 @@ const User = () => {
                   <div className="mx-1 badge badge-info">Hireable</div>
                 )}
               </h1>
-              <p>{bio ? bio : 'Not bio'}</p>
+              <p>{bio ? bio : 'No bio yet'}</p>
               <div className="mt-2 card-actions">
                 <a
                   href={html_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-outline btn-circle text-2xl"
+                  className="btn btn-outline  text-2xl"
                 >
-                  <GoMarkGithub />
+                  <GoMarkGithub className="mr-2" />
+                  <span className="text-sm">Visit Profile</span>
                 </a>
               </div>
             </div>
-            <div className="w-full rounded-lg shadow-lg bg-base-100 stats">
+            <div className="w-full flex flex-col lg:flex-row  shadow-lg bg-base-300 rounded-none stats">
               {location && (
                 <div className="stat">
                   <div className="stat-title text-md">Location</div>
@@ -135,9 +139,9 @@ const User = () => {
           </div>
         </div>
 
-        <div className="w-full py-5 mb-6 rounded-lg shadow-lg bg-base-100 stats flex flex-col lg:flex-row">
+        <div className="w-full py-5 my-5 rounded-none shadow-lg bg-base-300 stats flex flex-col lg:flex-row">
           <div className="stat">
-            <div className="stat-figure text-secondary">
+            <div className="stat-figure text-slate-500">
               <FaUsers className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Followers</div>
@@ -147,7 +151,7 @@ const User = () => {
           </div>
           {/* end of stat */}
           <div className="stat">
-            <div className="stat-figure text-secondary">
+            <div className="stat-figure text-slate-500">
               <ImUsers className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Following</div>
@@ -157,7 +161,7 @@ const User = () => {
           </div>
           {/* end of stat */}
           <div className="stat">
-            <div className="stat-figure text-secondary">
+            <div className="stat-figure text-slate-500">
               <RiGitRepositoryLine className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Public Repos</div>
@@ -167,7 +171,7 @@ const User = () => {
           </div>
           {/* end of repos */}
           <div className="stat">
-            <div className="stat-figure text-secondary">
+            <div className="stat-figure text-slate-500">
               <FaStoreAlt className="text-3xl md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Public Gists</div>
@@ -177,6 +181,7 @@ const User = () => {
           </div>
           {/* end of gists */}
         </div>
+        <RepoList repos={repos} />
       </div>
     </>
   );

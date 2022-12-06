@@ -47,7 +47,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Link
+            to="/"
+            className="btn btn-ghost rounded-none normal-case text-xl"
+          >
             <div className="mr-2">
               <GoMarkGithub />
             </div>
