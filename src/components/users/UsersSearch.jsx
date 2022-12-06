@@ -7,10 +7,8 @@ import { setDropDown } from '../../store/slices/dropDown.slice';
 const UsersSearch = () => {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
-  const [searchInput, setSearchInput] = useState(false);
   const navigate = useNavigate();
   const dropdown = useSelector((state) => state.dropdown);
-
   const users = useSelector((state) => state.users);
 
   const handleChange = (e) => {
@@ -25,7 +23,7 @@ const UsersSearch = () => {
     e.preventDefault();
     navigate('/');
     if (text === '') {
-      alert('Please enter something');
+      dispatch(setDropDown(true));
     } else {
       //do something
       dispatch(searchUsersThunk(text));
@@ -34,13 +32,13 @@ const UsersSearch = () => {
     }
   };
 
-  console.log(dropdown);
+  // console.log(dropdown);
 
   return (
     <div className="z-10">
       <form onSubmit={handleSubmit}>
-        <div className="form-control relative">
-          <div className="input-group">
+        <div className="">
+          <div className="">
             <input
               onClick={activeDropdown}
               value={text}
@@ -49,13 +47,13 @@ const UsersSearch = () => {
               placeholder="Search…"
               className={`${
                 dropdown ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-              } input absolute sm:static right-0 -bottom-[60px] input-group-xs   focus:outline-none transition-all duration-500 bg-base-100  shadow-md`}
+              } input md:input-lg absolute -translate-x-1/2 left-1/2 -bottom-[62px] md:-bottom-[75px] input-group-xs   focus:outline-none transition-all duration-500 bg-base-300/50  shadow-md `}
             />
 
             <button
-              onMouseOver={() => dispatch(setDropDown(true))}
+              onClick={() => dispatch(setDropDown(true))}
               type="submit"
-              className={` btn  btn-square btn-ghost`}
+              className={` btn btn-circle btn-ghost rounded-full`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

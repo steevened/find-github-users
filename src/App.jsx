@@ -10,6 +10,7 @@ import { setDropDown } from './store/slices/dropDown.slice';
 
 function App() {
   const loader = useSelector((state) => state.IsLoading);
+  const dropdown = useSelector((state) => state.dropdown);
   const dispatch = useDispatch();
 
   return (
@@ -18,7 +19,9 @@ function App() {
         <Navbar />
         {loader && <Loader />}
         <main
-          className="h-full min-h-screen"
+          className={`transition-all duration-500 h-full min-h-screen ${
+            dropdown ? 'blur-sm opacity-5' : ''
+          }`}
           onClick={() => dispatch(setDropDown(false))}
         >
           <Routes>
