@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const UsersItem = ({ user }) => {
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="card card-side compact bg-base-300 w-full flex items-center justify-center px-5 shadow-md shadow-slate-900">
