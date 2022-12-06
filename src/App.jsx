@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './components/Loader';
 import { setDropDown } from './store/slices/dropDown.slice';
+import User from './pages/User';
 
 function App() {
   const loader = useSelector((state) => state.IsLoading);
@@ -26,6 +27,7 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/user/:login" element={<User />} />
           </Routes>
         </main>
       </div>

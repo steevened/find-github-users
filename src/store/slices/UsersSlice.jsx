@@ -17,7 +17,6 @@ const GITHUB_TOKEN = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
 
 export const searchUsersThunk = (text) => (dispatch) => {
   dispatch(setIsLoading(true));
-
   const params = new URLSearchParams({
     q: text,
   });

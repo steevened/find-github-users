@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UsersSearch from '../components/users/UsersSearch';
 import { GoMarkGithub } from 'react-icons/go';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDropDown } from '../store/slices/dropDown.slice';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [text, setText] = useState();
+  const dispatch = useDispatch();
 
   return (
     <header className="relative">
@@ -36,7 +39,9 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link onClick={() => dispatch(setDropDown(false))} to="/about">
+                  About
+                </Link>
               </li>
             </ul>
           </div>

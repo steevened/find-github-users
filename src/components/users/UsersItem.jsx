@@ -11,7 +11,7 @@ export const UsersItem = ({ user }) => {
       </figure>
       <div className="card-body">
         <h2 className="text-xl">{user.login}</h2>
-        <Link to={`/users/${user.login}`}>
+        <Link to={`/user/${user.login}`}>
           <p>Visit profile</p>
         </Link>
       </div>
