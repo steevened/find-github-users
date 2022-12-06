@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header className="relative">
-      <nav className="navbar  bg-base-200 px-3 md:px-10">
+      <nav className="navbar  bg-base-300 px-3 md:px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">

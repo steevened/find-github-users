@@ -20,7 +20,7 @@ function App() {
         <Navbar />
         {loader && <Loader />}
         <main
-          className={`transition-all duration-500 h-full min-h-screen ${
+          className={`transition-all duration-200 ease-in-out h-full min-h-screen ${
             dropdown ? 'blur-sm opacity-5' : ''
           }`}
           onClick={() => dispatch(setDropDown(false))}

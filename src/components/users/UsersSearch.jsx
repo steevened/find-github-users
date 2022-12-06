@@ -49,7 +49,7 @@ const UsersSearch = () => {
               placeholder="Search…"
               className={`${
                 dropdown ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-              } input md:input-lg  focus:outline-none transition-all duration-500 bg-base-300/50 shadow-md `}
+              } input md:input-lg  focus:outline-none transition-all duration-200 ease-in-out bg-base-300/50 shadow-md `}
             />
           </div>
 
