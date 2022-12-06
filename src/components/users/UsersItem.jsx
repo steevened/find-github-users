@@ -5,7 +5,7 @@ export const UsersItem = ({ user }) => {
   // console.log(user);
 
   return (
-    <div className="card card-side compact bg-base-300 w-full flex items-center justify-center px-5 shadow-md shadow-slate-900">
+    <div className="card card-side compact bg-base-300 w-full flex items-center justify-center px-5 shadow-lg shadow-base-200">
       <figure className="w-16 h-16 rounded-full  ">
         <img src={user.avatar_url} alt="user github" />
       </figure>

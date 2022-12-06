@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UsersSearch from '../components/users/UsersSearch';
+import { GoMarkGithub } from 'react-icons/go';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -42,6 +43,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-center">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
+            <div className="mr-2">
+              <GoMarkGithub />
+            </div>
             Finder
           </Link>
         </div>
