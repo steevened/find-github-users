@@ -34,13 +34,13 @@ const UsersSearch = () => {
     }
   };
 
-  // console.log(dropdown);
+  // console.log(users);
 
   return (
-    <div className="z-10">
+    <div>
       <form onSubmit={handleSubmit}>
         <div className="">
-          <div className="absolute -translate-x-1/2 left-1/2 -bottom-[65px] md:-bottom-[75px]">
+          <div className="absolute -translate-x-1/2 left-1/2 top-20">
             <input
               onClick={activeDropdown}
               value={text}

@@ -11,7 +11,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <header className="relative">
+    <header className="z-50 relative">
       <nav className="navbar  bg-base-300 px-3 md:px-10">
         <div className="navbar-start">
           <div className="dropdown">

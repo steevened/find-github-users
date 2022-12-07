@@ -22,7 +22,7 @@ function App() {
         <Navbar />
         {loader && <Loader />}
         <main
-          className={`transition-all duration-200 ease-in-out h-full pb-24 md:pb-16 ${
+          className={`flex items-center justify-center transition-all duration-200 ease-in-out h-full min-h-[80vh] ${
             dropdown ? 'blur-sm opacity-5' : ''
           }`}
           onClick={() => dispatch(setDropDown(false))}

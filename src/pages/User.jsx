@@ -29,7 +29,7 @@ const User = () => {
     return <Loader />;
   }
 
-  console.log(repos);
+  // console.log(repos);
 
   const {
     avatar_url,
