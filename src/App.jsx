@@ -9,6 +9,7 @@ import Loader from './components/Loader';
 import { setDropDown } from './store/slices/dropDown.slice';
 import User from './pages/User';
 import Footer from './layout/Footer';
+import About from './pages/About';
 
 function App() {
   const loader = useSelector((state) => state.IsLoading);
@@ -28,6 +29,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+
             <Route path="/user/:login" element={<User />} />
           </Routes>
         </main>
