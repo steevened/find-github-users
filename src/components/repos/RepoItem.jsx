@@ -28,20 +28,31 @@ const RepoItem = ({ repo }) => {
         <p className="mb-3 text-sm">{description}</p>
         {/* start of badges */}
         <div>
-          <div className="mr-2 badge badge-info badge-lg">
-            <RiEye2Line className="mr-2" /> {watchers_count}
+          <div className="tooltip cursor-auto" data-tip="Watchers">
+            <div className="mr-2 badge badge-info badge-lg">
+              <RiEye2Line className="mr-2" />
+              {watchers_count}
+            </div>
+          </div>
+
+          {/* end of badge */}
+          <div className="tooltip cursor-auto" data-tip="Stars">
+            <div className="mr-2 badge badge-success badge-lg">
+              <VscStarFull className="mr-2" /> {stargazers_count}
+            </div>
           </div>
           {/* end of badge */}
-          <div className="mr-2 badge badge-success badge-lg">
-            <VscStarFull className="mr-2" /> {stargazers_count}
+          <div className="tooltip cursor-auto" data-tip="Issues">
+            <div className="mr-2 badge badge-error badge-lg">
+              <FiAlertTriangle className="mr-2" /> {open_issues}
+            </div>
           </div>
+
           {/* end of badge */}
-          <div className="mr-2 badge badge-error badge-lg">
-            <FiAlertTriangle className="mr-2" /> {open_issues}
-          </div>
-          {/* end of badge */}
-          <div className="mr-2 badge badge-warning badge-lg">
-            <GoRepoForked className="mr-2" /> {forks}
+          <div className="tooltip cursor-auto" data-tip="Forks">
+            <div className="mr-2 badge badge-warning badge-lg">
+              <GoRepoForked className="mr-2" /> {forks}
+            </div>
           </div>
           {/* end of badge */}
         </div>
