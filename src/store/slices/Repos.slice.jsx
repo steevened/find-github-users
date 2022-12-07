@@ -12,8 +12,8 @@ export const reposSlice = createSlice({
   },
 });
 
-const GITHUB_URL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
-const GITHUB_TOKEN = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
+const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const getReposThunk = (login) => (dispatch) => {
   dispatch(setIsLoading(true));
