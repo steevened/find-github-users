@@ -64,7 +64,7 @@ const User = () => {
 
   return (
     <>
-      <div className=" h-full min-h-screen mx-auto w-5/6 ">
+      <div className=" h-full min-h-screen mx-auto w-5/6 mb-32">
         <div className="my-6">
           <Link to="/" className="btn btn-ghost btn-circle">
             <AiOutlineArrowLeft />
