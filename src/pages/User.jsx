@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { UserThunk } from '../store/slices/User.slice'
-import { getReposThunk } from '../store/slices/Repos.slice'
-import { RiGitRepositoryLine } from 'react-icons/ri'
-import { FaStoreAlt } from 'react-icons/fa'
-import { FaUsers } from 'react-icons/fa'
-import { ImUsers } from 'react-icons/im'
-import { GoMarkGithub } from 'react-icons/go'
-import { AiOutlineArrowLeft } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import Loader from '../components/Loader'
-import RepoList from '../components/repos/RepoList'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { UserThunk } from '../store/slices/User.slice';
+import { getReposThunk } from '../store/slices/Repos.slice';
+import { RiGitRepositoryLine } from 'react-icons/ri';
+import { FaStoreAlt } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
+import { ImUsers } from 'react-icons/im';
+import { GoMarkGithub } from 'react-icons/go';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
+import RepoList from '../components/repos/RepoList';
 
 const User = () => {
-  const user = useSelector((state) => state.user)
-  const IsLoading = useSelector((state) => state.IsLoading)
-  const dispatch = useDispatch()
-  const params = useParams()
-  const repos = useSelector((state) => state.repos)
+  const user = useSelector((state) => state.user);
+  const IsLoading = useSelector((state) => state.IsLoading);
+  const dispatch = useDispatch();
+  const params = useParams();
+  const repos = useSelector((state) => state.repos);
 
   useEffect(() => {
-    dispatch(UserThunk(params.login))
-    dispatch(getReposThunk(params.login))
-  }, [])
+    dispatch(UserThunk(params.login));
+    dispatch(getReposThunk(params.login));
+  }, []);
 
   if (IsLoading) {
-    return <Loader />
+    return <Loader />;
   }
 
   // console.log(repos);
@@ -52,15 +52,12 @@ const User = () => {
     id,
     location,
     login,
-    node_id,
     name,
-    organizations_url,
-    owned_private_repos,
     twitter_username,
     type,
     public_repos,
     public_gists,
-  } = user
+  } = user;
 
   return (
     <>
@@ -184,7 +181,7 @@ const User = () => {
         <RepoList repos={repos} />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default User
+export default User;

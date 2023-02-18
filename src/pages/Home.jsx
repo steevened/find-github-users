@@ -19,8 +19,6 @@ const Home = () => {
   //   dispatch(getUsersThunk());
   // }, []);
 
-  console.log(users.length);
-
   return (
     <div className={`py-20 h-full w-5/6`}>
       {users.length > 0 ? (
